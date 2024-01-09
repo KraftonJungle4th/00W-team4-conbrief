@@ -1,0 +1,20 @@
+<div class="flex{{ style }}">
+    <div>
+        <label for="{{ item['name'] }}">
+            {{ item['label'] }}
+        </label>
+        <span class='example'>
+            {{ item['example'] }}
+        </span>
+    </div>
+    <div class='lastItem'>
+        <input type="{{ item['type'] }}"
+            name="{{ item['name'] }}"
+            pattern="{{ item['pattern'] }}"
+            placeholder="{{ item['placeholder'] }}"
+        >
+        <span class='caution'>
+            {{ errorMessage[item['name']] }}
+        </span>
+    </div>
+</div>
