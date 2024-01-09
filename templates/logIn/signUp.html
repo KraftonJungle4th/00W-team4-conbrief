@@ -18,6 +18,10 @@
             {% include 'components/inputBox.html' %}
 
         {% endfor %}
+
+        {% set onclickHandler = submitUserData %}        
+        {% set BTN_CONFIG = BTN_CONFIG %}        
+        {% include 'components/button.html' %}
     </form>
 
 </body>

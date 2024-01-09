@@ -22,3 +22,11 @@ SIGN_UP = [
         "placeholder": '4자리 이상 작성해주세요',
     },
 ]
+
+SIGN_UP_BTN = {
+    "btnName": "회원 가입",
+}
+
+LOGIN_BTN = {
+    "btnName": "로그인"
+}

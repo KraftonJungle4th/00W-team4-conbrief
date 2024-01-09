@@ -1,6 +1,6 @@
 from flask import Flask, redirect, render_template, request, jsonify, url_for
 from repository.UserRepository import UserRepository
-from clientConfigs.logIn.CONFIGS import SIGN_UP
+from clientConfigs.logIn.CONFIGS import SIGN_UP, SIGN_UP_BTN
 
 app = Flask(__name__)
 userRepository = UserRepository()
@@ -14,7 +14,7 @@ def home():
 @app.route("/signup", methods=['GET', 'POST'])
 def signup():
     if request.method == 'GET':
-        return render_template('logIn/signUp.html', CONFIG=SIGN_UP)
+        return render_template('logIn/signUp.html', CONFIG=SIGN_UP, BTN_CONFIG=SIGN_UP_BTN)
 
     if request.method == 'POST':
         signupRequestDto = request.form
@@ -31,7 +31,7 @@ def signup():
 
         # DB에 수강생정보 저장, 실패시 오류 메세지 반환
         if not userRepository.save(signupRequestDao):
-            return render_template('logIn/signUp.html', errorMessage="이미 회원가입이 되어있습니다.")
+        return render_template('logIn/signUp.html', errorMessage="이미 회원가입이 되어있습니다.")
 
         # 토큰 발급 후 쿠키 저장
         return redirect(url_for('home'))
