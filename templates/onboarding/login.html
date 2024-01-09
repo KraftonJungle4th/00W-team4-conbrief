@@ -5,12 +5,15 @@
     <title>Document</title>
 </head>
 <body>
-    <h2> {{ errorMessage }} </h2>
-    <form method="post">
-        <label for="studentNo">수강생번호</label>
-        <input type="text" name="studentNo" pattern="[0-9]*"><br>
-        <label for="password">비밀번호</label>
-        <input type="password" name="password">
+    <form method="post" class="signUp">
+        {% for item in CONFIG %}
+        
+            {% set style = 'Vertical' %}
+            {% set item = item %}
+            {% set errorMessage = errorMessage %}
+            {% include 'components/inputBox.html' %}
+
+        {% endfor %}
         <button type="submit">로그인</button>
     </form>
     <a href="/signup">회원가입</button>

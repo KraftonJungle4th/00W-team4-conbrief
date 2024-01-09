@@ -1,10 +1,10 @@
 import bcrypt
-from flask import Blueprint, app, redirect, render_template, request, url_for
+from flask import Blueprint, redirect, render_template, request, url_for
 import jwt
 from config.TokenProperty import TokenProperty
 from model.Token import Token
-
 from repository.UserRepository import UserRepository
+from clientConfigs.onboarding.CONFIGS import LOGIN
 
 userRepository =  UserRepository()
 login_bp = Blueprint("login", __name__)
@@ -12,13 +12,13 @@ login_bp = Blueprint("login", __name__)
 @login_bp.route("/login", methods=['GET', 'POST'])
 def login():
     if request.method == 'GET':
-        return render_template("login.html")
+        return render_template("onboarding/login.html", CONFIG=LOGIN)
     
     if request.method == 'POST':
         loginRequestDto = request.form
         student = userRepository.findByStudentNo(loginRequestDto['studentNo'])
         if not student or not bcrypt.checkpw(loginRequestDto['password'].encode('utf-8'), student['password']):
-            return render_template("login.html", errorMessage="아이디, 비밀번호를 확인해주세요")
+            return render_template("onboarding/login.html", CONFIG=LOGIN, errorMessage="아이디, 비밀번호를 확인해주세요")
         
         # 토큰 발급 후 쿠키 저장
         token = Token(loginRequestDto['studentNo'], TokenProperty.getMaxAge())
