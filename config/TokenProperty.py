@@ -2,9 +2,12 @@ from datetime import timedelta
 
 
 class TokenProperty():
+    """
+    토큰 유효기간(분 단위)
+    """
     @staticmethod
-    def getMaxAge() -> timedelta:
-        return timedelta(minutes=60 * 24)
+    def getMaxAge() -> int:
+        return 60 * 24
     
     @staticmethod
     def getSecretKey() -> str:

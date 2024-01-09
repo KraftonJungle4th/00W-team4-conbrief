@@ -37,13 +37,34 @@ def signup():
             return render_template('sign-up-form.html', errorMessage="이미 회원가입이 되어있습니다.")
 
         # 토큰 발급 후 쿠키 저장
-        token = Token(signupRequestDto['studentNo'], 1)
+        token = Token(signupRequestDto['studentNo'], TokenProperty.getMaxAge())
         accessToken = jwt.encode(token.toJson(), key=TokenProperty.getSecretKey(), algorithm=TokenProperty.getAlgorithm())
 
         resp = redirect(url_for('home'))
         resp.set_cookie('accessToken', accessToken, max_age=TokenProperty.getMaxAge(), expires=token.getExpireTime())
         return resp
 
+    raise Exception("지원하지 않는 Method 입니다")
+
+@app.route("/login", methods=['GET', 'POST'])
+def login():
+    if request.method == 'GET':
+        return render_template("login.html")
+    
+    if request.method == 'POST':
+        loginRequestDto = request.form
+        student = userRepository.findByStudentNo(loginRequestDto['studentNo'])
+        if not student or not bcrypt.checkpw(loginRequestDto['password'].encode('utf-8'), student['password']):
+            return render_template("login.html", errorMessage="아이디, 비밀번호를 확인해주세요")
+        
+        # 토큰 발급 후 쿠키 저장
+        token = Token(loginRequestDto['studentNo'], TokenProperty.getMaxAge())
+        accessToken = jwt.encode(token.toJson(), key=TokenProperty.getSecretKey(), algorithm=TokenProperty.getAlgorithm())
+
+        resp = redirect(url_for('home'))
+        resp.set_cookie('accessToken', accessToken, max_age=TokenProperty.getMaxAge(), expires=token.getExpireTime())
+        return resp
+    
     raise Exception("지원하지 않는 Method 입니다")
 
 @app.route("/api/students/exist/<studentNo>")

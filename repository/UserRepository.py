@@ -15,4 +15,10 @@ class UserRepository:
     
     def existByStudentNo(self, studentNo: str) -> bool:
         return True if self.__db.find_one({"studentNo": studentNo}) else False
+    
+
+    def findByStudentNo(self, studentNo: str) -> dict:
+        student = self.__db.find_one({"studentNo": studentNo})
+        return student
+
 
