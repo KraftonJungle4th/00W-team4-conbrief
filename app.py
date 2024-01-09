@@ -1,6 +1,11 @@
-from flask import Flask, redirect, render_template, request, jsonify, url_for
+
+from datetime import datetime, timedelta
+from flask import Flask, make_response, redirect, render_template, request, jsonify, url_for
+from config.TokenProperty import TokenProperty
+from model.Token import Token
 from repository.UserRepository import UserRepository
 import bcrypt
+import jwt
 
 app = Flask(__name__)
 userRepository =  UserRepository()
@@ -32,7 +37,12 @@ def signup():
             return render_template('sign-up-form.html', errorMessage="이미 회원가입이 되어있습니다.")
 
         # 토큰 발급 후 쿠키 저장
-        return redirect(url_for('home'))
+        token = Token(signupRequestDto['studentNo'], 1)
+        accessToken = jwt.encode(token.toJson(), key=TokenProperty.getSecretKey(), algorithm=TokenProperty.getAlgorithm())
+
+        resp = redirect(url_for('home'))
+        resp.set_cookie('accessToken', accessToken, max_age=TokenProperty.getMaxAge(), expires=token.getExpireTime())
+        return resp
 
     raise Exception("지원하지 않는 Method 입니다")
 
