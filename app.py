@@ -46,3 +46,6 @@ def signup():
 
     raise Exception("지원하지 않는 Method 입니다")
 
+@app.route("/api/students/exist/<studentNo>")
+def checkStudentNo(studentNo: str):
+    return {"exists" : userRepository.existByStudentNo(studentNo=studentNo)}
