@@ -1,0 +1,21 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="post" class="signUp">
+        {% for item in CONFIG %}
+        
+            {% set style = 'Vertical' %}
+            {% set item = item %}
+            {% set errorMessage = errorMessage %}
+            {% include 'components/inputBox.html' %}
+
+        {% endfor %}
+        <button type="submit">로그인</button>
+    </form>
+    <a href="/signup">회원가입</button>
+</body>
+</html>
