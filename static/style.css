@@ -1,0 +1,28 @@
+* {
+    box-sizing: border-box;
+}
+
+button, textarea {
+    border: none;
+    background-color: transparent;
+}
+
+.flexVertical {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.example {
+    opacity: 0.6;
+    font-size: 0.85rem;
+}
+
+.caution {
+    color: pink;
+}
+
+.lastItem {
+    margin-bottom: 18px;
+}
