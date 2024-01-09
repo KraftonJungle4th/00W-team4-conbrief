@@ -1,4 +1,3 @@
-
 from flask import Flask, render_template
 
 from controller.login import login_bp

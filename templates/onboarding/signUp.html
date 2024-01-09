@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src='{{url_for("static", filename="logIn/signUp.js")}}'></script>
+    <script src='{{url_for("static", filename="onboarding/signUp.js")}}'></script>
     <link rel="stylesheet" href='{{url_for("static", filename="style.css")}}'>
 
 </head>
@@ -20,7 +20,7 @@
         {% endfor %}
 
         {% set onclickHandler = submitUserData %}        
-        {% set BTN_CONFIG = BTN_CONFIG %}        
+        {% set BTN_CONFIG = BTN_CONFIG %}     
         {% include 'components/button.html' %}
     </form>
 
