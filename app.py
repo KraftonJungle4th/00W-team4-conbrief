@@ -1,5 +1,6 @@
 from flask import Flask, redirect, render_template, request, jsonify, url_for
 from repository.UserRepository import UserRepository
+import bcrypt
 
 app = Flask(__name__)
 userRepository =  UserRepository()
@@ -23,7 +24,7 @@ def signup():
         
         signupRequestDao = {
             'studentNo' : signupRequestDto['studentNo'],
-            'password' : signupRequestDto['password'],
+            'password' : bcrypt.hashpw(signupRequestDto['password'].encode('utf-8'), bcrypt.gensalt())
         }
 
         # DB에 수강생정보 저장, 실패시 오류 메세지 반환
