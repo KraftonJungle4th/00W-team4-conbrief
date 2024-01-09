@@ -23,6 +23,14 @@ button, textarea {
     color: pink;
 }
 
+#compBtn {
+    border-radius: 8px;
+    background-color: lightblue;
+    padding: 10px;
+
+    cursor: pointer;
+}
+
 .lastItem {
     margin-bottom: 18px;
 }

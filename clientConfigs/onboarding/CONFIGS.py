@@ -23,6 +23,13 @@ SIGN_UP = [
     },
 ]
 
+SIGN_UP_BTN = {
+    "btnName": "회원 가입",
+}
+
+LOGIN_BTN = {
+    "btnName": "로그인"
+}
 
 LOGIN = [
     {

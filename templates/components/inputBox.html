@@ -13,10 +13,11 @@
             pattern="{{ item['pattern'] }}"
             placeholder="{{ item['placeholder'] }}"
         >
-        <span class='caution'>
-            {% if errorMessage %}
+        {% if errorMessage %}
+            <span class='caution'>
                 {{ errorMessage[item['name']] }}
-            {% endif %}
-        </span>
+            </span>
+        {% endif %}
+
     </div>
 </div>
