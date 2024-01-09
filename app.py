@@ -1,6 +1,6 @@
 from flask import Flask, redirect, render_template, request, jsonify, url_for
 from repository.UserRepository import UserRepository
-from clientConfigs.CONFIGS import SIGN_UP
+from clientConfigs.logIn.CONFIGS import SIGN_UP
 
 app = Flask(__name__)
 userRepository = UserRepository()
