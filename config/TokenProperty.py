@@ -1,6 +1,3 @@
-from datetime import timedelta
-
-
 class TokenProperty():
     """
     토큰 유효기간(분 단위)

@@ -14,7 +14,9 @@
             placeholder="{{ item['placeholder'] }}"
         >
         <span class='caution'>
-            {{ errorMessage[item['name']] }}
+            {% if errorMessage %}
+                {{ errorMessage[item['name']] }}
+            {% endif %}
         </span>
     </div>
 </div>
