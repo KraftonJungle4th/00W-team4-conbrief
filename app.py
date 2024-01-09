@@ -1,11 +1,9 @@
-from flask import Flask, render_template, request, jsonify
-from pymongo import MongoClient
-from bson.objectid import ObjectId
-import os
+from flask import Flask, redirect, render_template, request, jsonify, url_for
+from repository.UserRepository import UserRepository
 
 app = Flask(__name__)
-db = MongoClient(os.environ.get("MONGO_URI")).conbrief
 
+userRepository =  UserRepository()
 
 @app.route('/')
 def home():
