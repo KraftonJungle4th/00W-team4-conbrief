@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="KR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>{{ errorMessage }}</h3>
+    <form method="post" class="sign-up-form">
+        <label for="studentNo">수강생 번호 <span>(ex. 4기-06인 경우 0406)</span></label><br>
+        <input type="text" name="studentNo" pattern="[0-9]*" title="형식을 확인해주세요">
+        <button id="studentNo-check-btn" data-checked="false" type="button">중복확인</button><br>
+        <label for="password">비밀번호</label><br>
+        <input type="password" name="password" placeholder="4자리 이상 작성해주세요" pattern=".{4,}" title="4자리 이상 작성해주세요"><br>
+        <label for="password">비밀번호 확인</label><br>
+        <input type="password" name="password-check" placeholder="4자리 이상 작성해주세요" pattern=".{4,}" title="4자리 이상 작성해주세요"><br>
+        <button type="submit">회원가입</button>
+    </form>
+
+</body>
+</html>
