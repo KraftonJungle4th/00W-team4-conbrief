@@ -25,5 +25,17 @@
         {% include 'components/button.html' %}
     </form>
 
+    {% if RESULT %}
+        <div>
+            {% set style = 'Vertical' %}
+            {% set result = RESULT%}
+            {% include 'componets/infoArea/infoArea.html' %}
+        </div>
+    {% endif %}
+        <div>
+        {% set onclickHandler = searchStudenNo %}        
+        {% set BTN_CONFIG = GAME_BTN_CONFIG %}
+        {% include 'components/button.html' %}
+        </div>
 </body>
 </html>
