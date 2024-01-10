@@ -28,7 +28,7 @@
     {% set item = SEARCH_CONFIG %}
     {% include 'components/introduction.html' %}
 
-    <form method="post" id="searchForm">
+    <form method="post" action="/main" id="searchForm">
         {% set style = 'Vertical' %}
         {% set item = SEARCH_CONFIG %}
         {% set errorMessage = errorMessage %}
@@ -42,7 +42,7 @@
         <div>
             {% set result = RESULT %}
             {% set infoConfig = INFO_CONFIG %}
-            {% include 'componets/infoArea/infoArea.html' %}
+            {% include 'components/infoArea/infoArea.html' %}
         </div>
         <div>
             {% set BTN_CONFIG = GAME_BTN_CONFIG %}

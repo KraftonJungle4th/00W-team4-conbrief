@@ -28,6 +28,11 @@ ul, li {
     color: pink;
 }
 
+.studentName {
+    font-size: 23px;
+    font-family:'Black Han Sans' ;
+}
+
 .introText {
     font-size: 20px;
     font-family:'Black Han Sans' ;

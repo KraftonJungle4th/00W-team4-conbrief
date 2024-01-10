@@ -10,12 +10,13 @@ userRepository = UserRepository()
 main_bp = Blueprint("main", __name__)
 
 
-@main_bp.route("/main/<studentNo>", methods=['GET', 'POST'])
-def main(studentNo: str):
+@main_bp.route("/main", methods=['GET', 'POST'])
+def main():
     if request.method == 'GET':
         return render_template('main/main.html', SEARCH_CONFIG=SEARCH_CONFIG)
 
     if request.method == 'POST':
+        studentNo = request.form["searchNo"]
         RESULT = userRepository.findByStudentNo(studentNo=studentNo)
         return render_template('main/main.html',
                                SEARCH_CONFIG=SEARCH_CONFIG,
