@@ -1,4 +1,5 @@
 function submitUserData () {
-    const loginBtn = document.getElementById('loginBtn');
-    loginBtn.setAttribute('type', 'submit');
+    const loginBtn = $('#loginBtn');
+    
+    // data validate func
 };

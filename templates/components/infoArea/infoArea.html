@@ -1,0 +1,25 @@
+<div>
+    <div>
+        {% set item = result %}
+        {% set infoConfig = infoConfig %}
+        {% include 'components/infoArea/top/profile.html' %}
+
+        {% for keyNlabel in infoCofig['rankList'] %}
+            {% set style = 'Vertical' %}
+            {% set item = result %}
+            {% set infoConfig = infoConfig %}
+            {% include 'components/infoArea/top/rankLine.html' %}    
+        {% endfor %}
+
+        {% include 'components/separator.html' %}
+    </div>
+
+    <ul>
+        {% for keyNlabel in infoConfig['infoList'] %}
+            {% set style = 'Horizontal' %}
+            {% set item = result %}
+            {% set keyNlabel = keyNlabel %}
+            {% include 'components/infoArea/bottom/infoLine.html' %}    
+        {% endfor %}
+    </ul>
+</div>

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>con-brief</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src='{{url_for("static", filename="main/main.js")}}'></script>
     <script defer src="https://use.fontawesome.com/releases/v6.4.0/js/all.js"></script>
     <link rel="stylesheet" href='{{url_for("static", filename="style.css")}}'>
@@ -11,32 +12,42 @@
 </head>
 <body>
     {% include 'components/navbar/navbar.html' %}
+    
+    <script>
+      
+        $(document).ready(function () {
+            const searchBtn = $('#searchNoBtn')
+            searchBtn.prop('type', 'button');
+            searchBtn.click(function(){
+                searchStudenNo();
+            })
+        });
+
+    </script>
+
     {% set item = SEARCH_CONFIG %}
     {% include 'components/introduction.html' %}
 
-    <form method="post" class="signUp">
-        
+    <form method="post" id="searchForm">
         {% set style = 'Vertical' %}
         {% set item = SEARCH_CONFIG %}
         {% set errorMessage = errorMessage %}
         {% include 'components/inputBox.html' %}
 
-        {% set onclickHandler = searchStudenNo %}        
         {% set BTN_CONFIG = SEARCH_CONFIG %}
         {% include 'components/button.html' %}
     </form>
 
     {% if RESULT %}
         <div>
-            {% set style = 'Vertical' %}
-            {% set result = RESULT%}
+            {% set result = RESULT %}
+            {% set infoConfig = INFO_CONFIG %}
             {% include 'componets/infoArea/infoArea.html' %}
         </div>
     {% endif %}
         <div>
-        {% set onclickHandler = searchStudenNo %}        
-        {% set BTN_CONFIG = GAME_BTN_CONFIG %}
-        {% include 'components/button.html' %}
+            {% set BTN_CONFIG = GAME_BTN_CONFIG %}
+            {% include 'components/button.html' %}
         </div>
 </body>
 </html>

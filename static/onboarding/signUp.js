@@ -11,7 +11,6 @@ function submitUserData () {
 };
 
 function dupCheckFunc () {
-    
     const signUpBtn = $('#signUpBtn');
     const studentNo = $('input[name=studentNo]').val()
 

@@ -8,6 +8,10 @@ button, textarea, input {
     outline: none;
 }
 
+ul, li {
+    list-style: none;
+}
+
 .flexVertical {
     display: flex;
     flex-direction: column;
@@ -29,6 +33,10 @@ button, textarea, input {
     font-family:'Black Han Sans' ;
 }
 
+.separatorLine {
+    width: 90%;
+    border-bottom: solid 1px gray;
+}
 
 .compBtn {
     border-radius: 6px;
