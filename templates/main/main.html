@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>con-brief</title>
     <script src='{{url_for("static", filename="main/main.js")}}'></script>
+    <script defer src="https://use.fontawesome.com/releases/v6.4.0/js/all.js"></script>
     <link rel="stylesheet" href='{{url_for("static", filename="style.css")}}'>
 
 </head>
 <body>
-
+    {% include 'components/navbar/navbar.html' %}
     {% set item = SEARCH_CONFIG %}
     {% include 'components/introduction.html' %}
 
