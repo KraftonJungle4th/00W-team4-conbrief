@@ -23,7 +23,13 @@ button, textarea {
     color: pink;
 }
 
-#compBtn {
+.introText {
+    font-size: 20px;
+    font-family:'Black Han Sans' ;
+}
+
+
+.compBtn {
     border-radius: 8px;
     background-color: lightblue;
     padding: 10px;
