@@ -18,7 +18,6 @@ app.register_blueprint(main_bp)
 app.register_blueprint(user_bp)
 
 
-@app.route('/main')
 @app.route('/')
 def home():
     return render_template('main/main.html', SEARCH_CONFIG=SEARCH_CONFIG)
