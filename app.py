@@ -5,6 +5,8 @@ from controller.login import login_bp
 from controller.signup import signup_bp
 from controller.user import user_bp
 from validators import TokenValidator
+from utils import URLMatcher
+from model.patterns import PASS_PATTERN;
 
 app = Flask(__name__)
 
@@ -20,11 +22,11 @@ def home():
 
 @app.before_request
 def filter():
-    if request.endpoint == 'static':
+    if request.endpoint == 'static' or URLMatcher.match(request.path, PASS_PATTERN):
         return
-    
+
     # api 인증 처리
-    if request.path.startswith("/api"):
+    if request.path.startswith("/api") :
         if not request.headers.get('Authorization', None):
             return abort(401)
         

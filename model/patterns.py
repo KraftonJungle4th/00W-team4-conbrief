@@ -1,0 +1,1 @@
+PASS_PATTERN = ["/api/students/exist/[0-9]{4,}/{0}"]
