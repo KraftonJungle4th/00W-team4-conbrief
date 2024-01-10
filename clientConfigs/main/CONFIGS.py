@@ -4,5 +4,6 @@ SEARCH_CONFIG = {
     'type': 'text',
     'pattern': '[0-9]*',
     'placeholder': 'ex. 4기-06의 경우 0406',
-    'btnName': '조회'
+    'btnName': '조회',
+    'btnId': 'searchNoBtn'
 }

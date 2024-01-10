@@ -1,4 +1,4 @@
 function submitUserData () {
-    const compBtn = document.getElementById('compBtn');
-    compBtn.setAttribute('type', 'submit');
+    const loginBtn = document.getElementById('loginBtn');
+    loginBtn.setAttribute('type', 'submit');
 };
