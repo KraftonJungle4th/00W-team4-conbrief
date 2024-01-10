@@ -25,9 +25,15 @@
 
         {% endfor %}
 
+        {% if errorMessage %}
+            <p class='caution'>
+                {{ errorMessage }}
+            </p>
+        {% endif %}
+
         {% set BTN_CONFIG = BTN_CONFIG %}     
         {% include 'components/button.html' %}
     </form>
-    <a href="/signup">회원가입</button>
+    <button class="compBtn" onclick="location.href='/signup'">회원 가입</button>
 </body>
 </html>

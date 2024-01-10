@@ -60,3 +60,57 @@ ul, li {
     border: solid 1px darkcyan;
     border-radius: 6px;
 }
+
+.navbar {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.navItem {
+    flex: 1
+}
+
+nav {
+    background-color: #c1c0c0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+nav .logo {
+    display: flex;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+}
+
+nav .logo i {
+    margin-right: 10px;
+}
+
+nav .logo a {
+    color: white;
+}
+
+nav .actions {
+    display: flex;
+    align-items: center;
+}
+
+nav .actions a {
+    margin-left: 20px;
+    color: white;
+    text-decoration: none;
+}
+
+nav .actions #logout {
+    padding: 5px 10px;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
