@@ -22,6 +22,7 @@ function searchStudenNo () {
 
     if(validate(searchNo)) {
         formTag.submit();
+        resetInput();
     }
 
 };
