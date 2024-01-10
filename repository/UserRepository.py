@@ -18,5 +18,9 @@ class UserRepository:
     def findByStudentNo(self, studentNo: str) -> dict:
         student = self.__db.find_one({"studentNo": studentNo})
         return student
+    
+    def updateStudentInfor(self,studentInforDto:dict,studentNo:str):
+
+        self.__db.update_one({"studentNo":studentNo},{'$set':studentInforDto})
 
 
