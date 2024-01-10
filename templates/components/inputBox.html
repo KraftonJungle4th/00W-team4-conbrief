@@ -19,10 +19,6 @@
                 name="{{ item['name'] }}"
                 pattern="{{ item['pattern'] }}"
                 placeholder="{{ item['placeholder'] }}"
-                
-                {% if item['max'] %}
-                    max="{{ item['max'] }}"
-                {% endif %}
             >
             {% if item['insideBtn'] %}
                 {% set BTN_CONFIG = item['insideBtn'] %}          

@@ -5,7 +5,6 @@ SIGN_UP = [
         "example": '(ex.4기-06인 경우 "0406")',
         "type": 'text',
         "pattern": '[0-9]*',
-        "max": '4',
         "placeholder": '형식을 확인해주세요',
         "insideBtn": {
             "btnName": "중복 체크",
