@@ -15,13 +15,18 @@ function dupCheckFunc () {
             dupCheckBtn.prop('disabled', true)
         }
     };
+
     
-    $.ajax({
-        type: "GET",
-        url: `/api/students/exist/${studentNo}`,
-        data:{},
-        success: function(response) {
-            handleResponse(response);
-        },
-    });
+    if (studentNo) {
+        $.ajax({
+            type: "GET",
+            url: `/api/students/exist/${studentNo}`,
+            data:{},
+            success: function(response) {
+                handleResponse(response);
+            },
+        });
+    } else {
+        alert('먼저 수강생 번호를 입력해주세요.')
+    }    
 }
