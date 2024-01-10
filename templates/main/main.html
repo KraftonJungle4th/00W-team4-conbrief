@@ -37,7 +37,8 @@
 
     {% if RESULT %}
         <div>
-            {% set item = RESULT %}
+            {% set result = RESULT %}
+            {% set infoConfig = INFO_CONFIG %}
             {% include 'componets/infoArea/infoArea.html' %}
         </div>
     {% endif %}
