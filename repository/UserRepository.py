@@ -2,7 +2,7 @@ from pymongo import MongoClient
 
 class UserRepository:
     def __init__(self):
-        self.__db = MongoClient("127.0.0.1").conbrief.user
+        self.__db = MongoClient("127.0.0.1").conbrief.users
 
     def save(self, signupRequestDto: dict) -> bool:
         assert signupRequestDto["studentNo"]
