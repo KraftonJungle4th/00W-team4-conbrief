@@ -11,17 +11,20 @@
 
 </head>
 <body>
-    <script>
-        let hasChecked = false;
-        
+    <script>        
         $(document).ready(function () {
-            $('input[name=studentNo]').change(
-            function() {
-                hasChecked = false;
-            }
-        )
         
-            $('#signUpBtn').prop('disabled', true)
+            $('#dupCheckBtn').prop('type', 'button');
+            $('#dupCheckBtn').data('hasChecked', false);
+            $('#dupCheckBtn').click(function(){ dupCheckFunc() });
+
+            $('#signUpBtn').prop('disabled', true);
+            $('#signUpBtn').click(function(){ submitUserData() });
+
+            $('input[name=studentNo]').change(function(){
+                $('#dupCheckBtn').data('hasChecked', false);
+            })
+            
         });
 
     </script>
@@ -31,14 +34,12 @@
         
             {% set style = 'Vertical' %}
             {% set item = item %}
-            {% set dupCheckFunc = 'dupCheckFunc(hasChecked)' %}
             {% set errorMessage = errorMessage %}
             {% include 'components/inputBox.html' %}
 
         {% endfor %}
 
-        {% set BTN_CONFIG = BTN_CONFIG %}     
-        {% set onclickHandler = 'submitUserData(hasChecked)' %}        
+        {% set BTN_CONFIG = BTN_CONFIG %}
         {% include 'components/button.html' %}
     </form>
 

@@ -8,11 +8,3 @@
         {{ BTN_CONFIG['btnName'] }}
 </button>
 
-{% if onclickHandler %}
-    <script>
-        document.getElementById("{{ BTN_CONFIG['btnId'] }}").onclick = function() {
-            {{ onclickHandler }}();
-        }
-    </script>
-{% endif %}
-
