@@ -1,0 +1,14 @@
+<div>
+    {% set item = result %}
+    {% set infoConfig = infoConfig %}
+    {% include 'components/infoArea/top/profile.html' %}
+
+    {% for item in infoCofig['rankList'] %}
+        {% set style = 'Vertical' %}
+        {% set item = item %}
+        {% include 'components/infoArea/top/rankLine.html' %}    
+    {% endfor %}
+
+    {% include 'components/separator.html' %}
+    
+</div>

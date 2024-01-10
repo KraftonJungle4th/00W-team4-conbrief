@@ -7,3 +7,11 @@ SEARCH_CONFIG = {
     'btnName': '조회',
     'btnId': 'searchNoBtn'
 }
+
+INFO_CONFIG = {
+    'defaultImg': 'https://cataas.com/cat',
+    'rankList': [
+        {'key': '인지도 랭킹', 'unit': '위'},
+        {'key': '정답률 랭킹', 'unit': '위'}
+    ]
+}

@@ -8,6 +8,10 @@ button, textarea, input {
     outline: none;
 }
 
+ul, li {
+    list-style: none;
+}
+
 .flexVertical {
     display: flex;
     flex-direction: column;

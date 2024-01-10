@@ -1,0 +1,7 @@
+<ul>
+    {% for item in result %}
+        {% set style = 'Horizontal' %}
+        {% set item = item %}
+        {% include 'components/infoArea/bottom/infoLine.html' %}    
+    {% endfor %}
+</ul>

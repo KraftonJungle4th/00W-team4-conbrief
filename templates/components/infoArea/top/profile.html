@@ -1,0 +1,20 @@
+<div class='flexVertical'>
+    <img
+    class="profileImg"
+
+    {% if result['imgUrl'] % }
+        src="{{ item['imgUrl'] }}"
+    {% else % }
+        src="{{ infoConfig['defaultImg'] }}"
+    {% endif % }
+
+    alt="{{ item['name'] }}ProfileImage"
+    />
+
+    {% set item = item['name'] %}
+    {% include 'components/introduction.html' %}
+
+    <p class='dreamText'>
+        {{ item['dream'] }}
+    </p>
+</div>
