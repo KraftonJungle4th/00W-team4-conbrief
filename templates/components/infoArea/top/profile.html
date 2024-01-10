@@ -1,17 +1,18 @@
 <div class='flexVertical'>
     <img
     class="profileImg"
-        {% if result['imgUrl'] % }
+        {% if result['imgUrl'] %}
             src="{{ item['imgUrl'] }}"
-        {% else % }
+        {% else %}
             src="{{ infoConfig['defaultImg'] }}"
-        {% endif % }
+        {% endif %}
 
         alt="{{ item['name'] }}ProfileImage"
     />
 
-    {% set item = item['name'] %}
-    {% include 'components/introduction.html' %}
+    <p class='studentName'>
+        {{ item['name'] }}
+    </p>
 
     <p class='dreamText'>
         {{ item['dream'] }}
