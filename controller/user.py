@@ -1,6 +1,9 @@
 from flask import Blueprint,jsonify,request,template_rendered
 from repository.UserRepository import UserRepository
 from clientConfigs.main.CONFIGS import SEARCH_CONFIG
+from config.TokenProperty import TokenProperty
+import jwt
+
 
 userRepository =  UserRepository()
 user_bp = Blueprint("user", __name__)
@@ -25,6 +28,26 @@ def insertStudentInfor(studentNo:str):
 
     studentInfor = request.form 
     userRepository.updateStudentInfor(studentInfor,studentNo=studentNo)
+
+@user_bp.route("/api/game/data")
+def updateGameResultData():
+    receivedData = request.form
+
+    searchedNo = receivedData["searchNo"]
+    searchedData = userRepository.findByStudentNo(searchedNo)
+
+
+    
+
+        
+    
+    searchNo = jwt.decode(token, key=TokenProperty.getSecretKey(), algorithms=[TokenProperty.getAlgorithm()])
+    
+    correctNum = receivedData["correctNum"]
+
+
+
+
 
 
 
