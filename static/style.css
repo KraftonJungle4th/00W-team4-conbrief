@@ -19,6 +19,13 @@ ul, li {
     justify-content: center;
 }
 
+.flexHorizontal {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+}
+
 .example {
     opacity: 0.6;
     font-size: 0.85rem;

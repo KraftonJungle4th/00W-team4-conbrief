@@ -17,8 +17,14 @@
         <div class='inputArea'>
             <input type="{{ item['type'] }}"
                 name="{{ item['name'] }}"
-                pattern="{{ item['pattern'] }}"
                 placeholder="{{ item['placeholder'] }}"
+                class="{{ item['class'] }}"
+                {% if item['pattern'] %}
+                    pattern="{{ item['pattern'] }}"
+                {% endif %}
+                {% if student %}
+                    value="{{ student[item['name']] }}"                
+                {% endif %}
             >
             {% if item['insideBtn'] %}
                 {% set BTN_CONFIG = item['insideBtn'] %}          

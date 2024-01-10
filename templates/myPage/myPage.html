@@ -1,0 +1,37 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마이페이지</title>
+    <script defer src="https://use.fontawesome.com/releases/v6.4.0/js/all.js"></script>
+    <script defer src='{{url_for("static", filename="myPage/myPage.js")}}'></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href='{{url_for("static", filename="style.css")}}'>
+</head>
+<body>
+    {% include 'components/navbar/navbar.html' %}
+
+    <form method="post" id="saveForm">
+        {% for item in MODYFIABLE_INFO_CONFIG %}
+            {% set style = 'Horizontal' %}
+            {% include 'components/inputBox.html' %}
+        {% endfor %}
+
+        <button class="compBtn" id="saveBtn" type="submit">저장</button>
+    </form>
+    {% if result %}
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: '저장 성공!',
+            showConfirmButton: false,
+            timer: 1000
+        }).then( result => {
+            console.log("resutl!!")
+            location.href = '/mypage'
+        });
+    </script>
+    {% endif %}
+</body>
+
+</html>
