@@ -2,9 +2,10 @@
     box-sizing: border-box;
 }
 
-button, textarea {
+button, textarea, input {
     border: none;
     background-color: transparent;
+    outline: none;
 }
 
 .flexVertical {
@@ -23,8 +24,8 @@ button, textarea {
     color: pink;
 }
 
-#compBtn {
-    border-radius: 8px;
+.compBtn {
+    border-radius: 6px;
     background-color: lightblue;
     padding: 10px;
 
@@ -33,4 +34,10 @@ button, textarea {
 
 .lastItem {
     margin-bottom: 18px;
+}
+
+.inputArea {
+    padding: 8px;
+    border: solid 1px darkcyan;
+    border-radius: 6px;
 }

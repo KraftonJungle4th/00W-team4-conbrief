@@ -6,6 +6,14 @@ SIGN_UP = [
         "type": 'text',
         "pattern": '[0-9]*',
         "placeholder": '형식을 확인해주세요',
+        "insideBtn": {
+            "btnName": "중복 체크",
+            "btnId": "dupCheckBtn",
+            "style": {
+                "size": "small"
+            }
+        },
+
     },
     {
         "name": 'password',
@@ -25,10 +33,12 @@ SIGN_UP = [
 
 SIGN_UP_BTN = {
     "btnName": "회원 가입",
+    "btnId": "signUpBtn",
 }
 
 LOGIN_BTN = {
-    "btnName": "로그인"
+    "btnName": "로그인",
+    "btnId": "loginBtn",
 }
 
 LOGIN = [
