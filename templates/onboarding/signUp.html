@@ -11,19 +11,34 @@
 
 </head>
 <body>
+    <script>
+        let hasChecked = false;
+        
+        $(document).ready(function () {
+            $('input[name=studentNo]').change(
+            function() {
+                hasChecked = false;
+            }
+        )
+        
+            $('#signUpBtn').prop('disabled', true)
+        });
+
+    </script>
+
     <form method="post" class="signUp">
         {% for item in CONFIG %}
         
             {% set style = 'Vertical' %}
             {% set item = item %}
-            {% set dupCheckFunc = 'dupCheckFunc' %}
+            {% set dupCheckFunc = 'dupCheckFunc(hasChecked)' %}
             {% set errorMessage = errorMessage %}
             {% include 'components/inputBox.html' %}
 
         {% endfor %}
 
         {% set BTN_CONFIG = BTN_CONFIG %}     
-        {% set onclickHandler = 'submitUserData' %}        
+        {% set onclickHandler = 'submitUserData(hasChecked)' %}        
         {% include 'components/button.html' %}
     </form>
 

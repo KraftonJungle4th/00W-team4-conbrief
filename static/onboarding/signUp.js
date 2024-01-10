@@ -1,18 +1,28 @@
-function submitUserData () {
+function submitUserData (hasChecked) {
     const signUpBtn = $('#signUpBtn');
-    signUpBtn.setAttribute('type', 'submit');
+
+    if(hasChecked) {
+        signUpBtn.setAttribute('type', 'submit');
+    } else {
+        signUpBtn.prop('disabled', true)
+        alert('수강생 번호 중복체크를 해주세요.')
+    };
+
+    
 };
 
-function dupCheckFunc () {
-    const dupCheckBtn = $('#dupCheckBtn');
+function dupCheckFunc (hasChecked) {
+    const signUpBtn = $('#signUpBtn');
     const studentNo = $('input[name=studentNo]').val()
 
     function handleResponse(response) {
         if (response?.exists) {
-            dupCheckBtn.prop('disabled', false)
+            hasChecked = false;
+            signUpBtn.prop('disabled', true)
             alert('이미 존재하는 계정입니다.')
         } else {
-            dupCheckBtn.prop('disabled', true)
+            hasChecked = true;
+            signUpBtn.prop('disabled', false)
         }
     };
 
