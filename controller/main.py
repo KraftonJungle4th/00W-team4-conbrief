@@ -17,4 +17,9 @@ def main(studentNo: str):
 
     if request.method == 'POST':
         RESULT = userRepository.findByStudentNo(studentNo=studentNo)
-        return render_template('main/main.html', SEARCH_CONFIG=SEARCH_CONFIG, RESULT=RESULT, INFO_CONFIG=INFO_CONFIG, GAME_BTN_CONFIG=GAME_BTN_CONFIG)
+        return render_template('main/main.html',
+                               SEARCH_CONFIG=SEARCH_CONFIG,
+                               RESULT=RESULT,
+                               INFO_CONFIG=INFO_CONFIG,
+                               GAME_BTN_CONFIG=GAME_BTN_CONFIG
+                               )

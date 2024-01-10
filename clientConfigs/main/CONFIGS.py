@@ -11,7 +11,6 @@ SEARCH_CONFIG = {
 }
 
 GAME_BTN_CONFIG = {
-
     'btnName': '미니 게임 시작',
     'btnId': 'miniStartBtn'
 
