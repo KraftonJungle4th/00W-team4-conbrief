@@ -17,10 +17,10 @@ def signup():
 
     if request.method == 'POST':
         signupRequestDto = request.form
-        if not signupRequestDto['studentNo'] or len(signupRequestDto['password']) < 4 or len(signupRequestDto['password-check']) < 4:
+        if not signupRequestDto['studentNo'] or len(signupRequestDto['password']) < 4 or len(signupRequestDto['passwordCheck']) < 4:
             return render_template('onboarding/signUp.html', CONFIG=SIGN_UP, errorMessage="입력값을 확인해주세요", BTN_CONFIG=SIGN_UP_BTN)
 
-        if signupRequestDto['password'] != signupRequestDto['password-check']:
+        if signupRequestDto['password'] != signupRequestDto['passwordCheck']:
             return render_template('onboarding/signUp.html', CONFIG=SIGN_UP, errorMessage="두 비밀번호가 일치하지 않습니다.", BTN_CONFIG=SIGN_UP_BTN)
 
         signupRequestDao = {

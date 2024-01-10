@@ -7,7 +7,8 @@ from controller.main import main_bp
 from controller.user import user_bp
 from validators import TokenValidator
 from utils import URLMatcher
-from model.patterns import PASS_PATTERN;
+from model.patterns import PASS_PATTERN
+from clientConfigs.main.CONFIGS import SEARCH_CONFIG
 
 app = Flask(__name__)
 
@@ -19,7 +20,7 @@ app.register_blueprint(user_bp)
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('main/main.html', SEARCH_CONFIG=SEARCH_CONFIG)
 
 
 @app.before_request
@@ -28,7 +29,7 @@ def filter():
         return
 
     # api 인증 처리
-    if request.path.startswith("/api") :
+    if request.path.startswith("/api"):
         if not request.headers.get('Authorization', None):
             return abort(401)
 
