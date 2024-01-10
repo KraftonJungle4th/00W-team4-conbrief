@@ -1,9 +1,12 @@
-from flask import Blueprint,jsonify,request,template_rendered
+from flask import Blueprint,jsonify, redirect, render_template,request, url_for
+import jwt
+from config.TokenProperty import TokenProperty
 from repository.UserRepository import UserRepository
 from clientConfigs.main.CONFIGS import SEARCH_CONFIG
 from config.TokenProperty import TokenProperty
 import jwt
 
+from clientConfigs.main.CONFIGS import MODYFIABLE_INFO_CONFIG, SEARCH_CONFIG
 
 userRepository =  UserRepository()
 user_bp = Blueprint("user", __name__)
@@ -57,4 +60,24 @@ def updateGameResultData():
                                     correctNum=correctNum
                                     )
     
-    #friendlyRate
+@user_bp.route("/mypage", methods=["GET", "POST"])
+def mypage():
+    token = request.cookies["accessToken"]
+    studentNo = jwt.decode(token, TokenProperty.getSecretKey(), TokenProperty.getAlgorithm())["studentNo"]
+    student = userRepository.findByStudentNo(studentNo)
+    if request.method == "GET":
+        result = request.args.get('result', False)
+        return render_template("mypage/mypage.html", student=student, MODYFIABLE_INFO_CONFIG=MODYFIABLE_INFO_CONFIG, result=result)
+    
+    if request.method == "POST":
+        updateRequestDto = {} 
+        for name, value in request.form.items():
+            if value:
+                updateRequestDto[name] = value
+        userRepository.updateStudentInfor(updateRequestDto, studentNo)
+        return redirect(url_for("user.mypage", result=True))
+
+
+
+
+
