@@ -24,6 +24,12 @@ button, textarea, input {
     color: pink;
 }
 
+.introText {
+    font-size: 20px;
+    font-family:'Black Han Sans' ;
+}
+
+
 .compBtn {
     border-radius: 6px;
     background-color: lightblue;

@@ -1,12 +1,18 @@
 <div class="flex{{ style }}">
-    <div>
-        <label for="{{ item['name'] }}">
-            {{ item['label'] }}
-        </label>
-        <span class='example'>
-            {{ item['example'] }}
-        </span>
-    </div>
+    
+    {% if item['label'] %}
+        <div>
+            <label for="{{ item['name'] }}">
+                {{ item['label'] }}
+            </label>
+            {% if item['example'] %}
+                <span class='example'>
+                    {{ item['example'] }}
+                </span>
+            {% endif %}
+        </div>
+    {% endif %}
+    
     <div class='lastItem flexVertical'>
         <div class='inputArea'>
             <input type="{{ item['type'] }}"
@@ -19,7 +25,6 @@
                 {% set onclickHandler = 'dupCheckFunc' %}        
                 {% include 'components/button.html' %}
             {% endif %}
-
         </div>
         {% if errorMessage %}
             <span class='caution'>

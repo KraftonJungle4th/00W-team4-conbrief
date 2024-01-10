@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="KR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>con-brief</title>
+    <script src='{{url_for("static", filename="main/main.js")}}'></script>
+    <link rel="stylesheet" href='{{url_for("static", filename="style.css")}}'>
+
+</head>
+<body>
+
+    {% set item = SEARCH_CONFIG %}
+    {% include 'components/introduction.html' %}
+
+    <form method="post" class="signUp">
+        
+        {% set style = 'Vertical' %}
+        {% set item = SEARCH_CONFIG %}
+        {% set errorMessage = errorMessage %}
+        {% include 'components/inputBox.html' %}
+
+        {% set onclickHandler = searchStudenNo %}        
+        {% set BTN_CONFIG = SEARCH_CONFIG %}
+        {% include 'components/button.html' %}
+    </form>
+
+</body>
+</html>
