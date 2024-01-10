@@ -1,13 +1,19 @@
 <div class="flex{{ style }}">
-    <div>
-        <label for="{{ item['name'] }}">
-            {{ item['label'] }}
-        </label>
-        <span class='example'>
-            {{ item['example'] }}
-        </span>
-    </div>
-    <div class='lastItem'>
+    
+    {% if item['label'] %}
+        <div>
+            <label for="{{ item['name'] }}">
+                {{ item['label'] }}
+            </label>
+            {% if item['example'] %}
+                <span class='example'>
+                    {{ item['example'] }}
+                </span>
+            {% endif %}
+        </div>
+    {% endif %}
+    
+    <div class='lastItem flexVertical'>
         <input type="{{ item['type'] }}"
             name="{{ item['name'] }}"
             pattern="{{ item['pattern'] }}"
