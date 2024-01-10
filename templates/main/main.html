@@ -53,22 +53,15 @@
             {% set infoConfig = INFO_CONFIG %}
             {% include 'components/infoArea/infoArea.html' %}
         </div>
-
-        <!-- 게임 모달 개발하고나서 아래 div는 지우기! -->
-        <div>
-            {% set BTN_CONFIG = GAME_BTN_CONFIG %}
-            {% include 'components/button.html' %}
-        </div>
-        <!-- 이거 위에까지 지우라는 소리고 저 아래 HAS_GAME 살리기 -->
         
     {% endif %}
     
-    <!-- {% if HAS_GAME %}
+    {% if HAS_GAME %}
         <div>
             {% set BTN_CONFIG = GAME_BTN_CONFIG %}
             {% include 'components/button.html' %}
         </div>
-    {% endif %} -->
+    {% endif %}
   </div>
 </body>
 </html>
