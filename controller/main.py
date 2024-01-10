@@ -13,7 +13,6 @@ main_bp = Blueprint("main", __name__)
 @main_bp.route("/main/<studentNo>", methods=['GET', 'POST'])
 def main(studentNo: str):
     if request.method == 'GET':
-
         return render_template('main/main.html', SEARCH_CONFIG=SEARCH_CONFIG)
 
     if request.method == 'POST':

@@ -33,6 +33,10 @@ ul, li {
     font-family:'Black Han Sans' ;
 }
 
+.separatorLine {
+    width: 90%;
+    border-bottom: solid 1px gray;
+}
 
 .compBtn {
     border-radius: 6px;

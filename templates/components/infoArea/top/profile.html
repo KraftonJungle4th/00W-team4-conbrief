@@ -1,14 +1,13 @@
 <div class='flexVertical'>
     <img
     class="profileImg"
+        {% if result['imgUrl'] % }
+            src="{{ item['imgUrl'] }}"
+        {% else % }
+            src="{{ infoConfig['defaultImg'] }}"
+        {% endif % }
 
-    {% if result['imgUrl'] % }
-        src="{{ item['imgUrl'] }}"
-    {% else % }
-        src="{{ infoConfig['defaultImg'] }}"
-    {% endif % }
-
-    alt="{{ item['name'] }}ProfileImage"
+        alt="{{ item['name'] }}ProfileImage"
     />
 
     {% set item = item['name'] %}

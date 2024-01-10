@@ -1,8 +1,10 @@
 <li class='infoLine'>
-    <span class='labelText'> {{ item['key'] }}</span>
-    <span class='valueText'> {{ item['value'] }}</span>
+    {% if item[ keyNlabel['key'] ] %}
+        <span class='labelText'> {{ item[ keyNlabel['label'] ] }}</span>
+        <span class='valueText'> {{ item[ keyNlabel['key'] ] }}</span>
 
-    {% if item['key'] in ['email', 'github', 'phone'] %}
-        <i class="fa-regular fa-copy"></i>
+        {% if keyNlabel['key'] in ['email', 'github', 'phone'] %}
+            <i class="fa-regular fa-copy"></i>
+        {% endif %}
     {% endif %}
 </li>

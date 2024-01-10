@@ -4,9 +4,9 @@
         {% set infoConfig = infoConfig %}
         {% include 'components/infoArea/top/profile.html' %}
 
-        {% for item in infoCofig['rankList'] %}
+        {% for keyNlabel in infoCofig['rankList'] %}
             {% set style = 'Vertical' %}
-            {% set item = item %}
+            {% set item = result %}
             {% set infoConfig = infoConfig %}
             {% include 'components/infoArea/top/rankLine.html' %}    
         {% endfor %}
@@ -15,9 +15,10 @@
     </div>
 
     <ul>
-        {% for item in result %}
+        {% for keyNlabel in infoConfig['infoList'] %}
             {% set style = 'Horizontal' %}
-            {% set item = item %}
+            {% set item = result %}
+            {% set keyNlabel = keyNlabel %}
             {% include 'components/infoArea/bottom/infoLine.html' %}    
         {% endfor %}
     </ul>
