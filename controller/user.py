@@ -30,9 +30,7 @@ def getStudentInfor(studentNo: str):
 
 
 @user_bp.route("/api/students/infor/<studentNo>")
-<<<<<<< HEAD
-def insertStudentInfor(studentNo: str):
-=======
+
 def insertStudentInfor(studentNo:str):
 
     studentInfor = request.form 
@@ -85,8 +83,3 @@ def mypage():
 
 
 
-
->>>>>>> main
-
-    studentInfor = request.form
-    userRepository.updateStudentInfor(studentInfor, studentNo=studentNo)

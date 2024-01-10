@@ -20,7 +20,7 @@ def main():
         RESULT = userRepository.findByStudentNo(studentNo=studentNo)
         necesskeys=["age","mbti","ttfTruth1","ttfTruth2","ttfFalse"]
 
-        if all(key in RESULT for key  in necesskeys):
+        if all((key in RESULT) for key  in necesskeys):
             buttonActivate = True
         else:
             buttonActivate = False
