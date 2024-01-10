@@ -35,7 +35,7 @@ def filter():
 
         tokenType, token = request.headers['Authorization'].split()
         try:
-            if tokenType != 'Bearer' or TokenValidator.validateToken(token):
+            if tokenType != 'Bearer' or not TokenValidator.validateToken(token):
                 return abort(401)
         except:
             return abort(401)
