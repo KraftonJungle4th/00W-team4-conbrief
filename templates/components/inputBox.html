@@ -7,16 +7,25 @@
             {{ item['example'] }}
         </span>
     </div>
-    <div class='lastItem'>
-        <input type="{{ item['type'] }}"
-            name="{{ item['name'] }}"
-            pattern="{{ item['pattern'] }}"
-            placeholder="{{ item['placeholder'] }}"
-        >
-        <span class='caution'>
-            {% if errorMessage %}
-                {{ errorMessage[item['name']] }}
+    <div class='lastItem flexVertical'>
+        <div class='inputArea'>
+            <input type="{{ item['type'] }}"
+                name="{{ item['name'] }}"
+                pattern="{{ item['pattern'] }}"
+                placeholder="{{ item['placeholder'] }}"
+            >
+            {% if item['insideBtn'] %}
+                {% set BTN_CONFIG = item['insideBtn'] %}     
+                {% set onclickHandler = 'dupCheckFunc' %}        
+                {% include 'components/button.html' %}
             {% endif %}
-        </span>
+
+        </div>
+        {% if errorMessage %}
+            <span class='caution'>
+                {{ errorMessage[item['name']] }}
+            </span>
+        {% endif %}
+
     </div>
 </div>

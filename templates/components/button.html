@@ -1,0 +1,18 @@
+<button
+    id="{{ BTN_CONFIG['btnId'] }}"
+    class="compBtn"
+    {% if BTN_CONFIG['style'] %}
+    class="{{ BTN_CONFIG['style'] }}"
+    {% endif %}
+    >
+        {{ BTN_CONFIG['btnName'] }}
+</button>
+
+{% if onclickHandler %}
+    <script>
+        document.getElementById("{{ BTN_CONFIG['btnId'] }}").onclick = function() {
+            {{ onclickHandler }}();
+        }
+    </script>
+{% endif %}
+
