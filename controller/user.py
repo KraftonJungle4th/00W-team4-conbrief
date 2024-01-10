@@ -31,44 +31,30 @@ def insertStudentInfor(studentNo:str):
 
 @user_bp.route("/api/game/data")
 def updateGameResultData():
-    receivedData = request.form
-
-    searchedNo = receivedData["searchNo"]
-    searchedData = userRepository.findByStudentNo(searchedNo)
-
-
+    receivedData = request.get_json()
     
-
-        
-    
-    searchNo = jwt.decode(token, key=TokenProperty.getSecretKey(), algorithms=[TokenProperty.getAlgorithm()])
-    
+    #점수
     correctNum = receivedData["correctNum"]
-
-
-
-
-
-
-
-
-
-
-
-
+    
+    #검색된 사람
+    searchedNo = receivedData["searchNo"]
+    searchedData = userRepository.findByStudentNo(searchedNo) #dictionary 
+    
+    #문제 푼 사람
+    token = request.headers.get("Authorization").split()[1]
+    payload = jwt.decode(token, key=TokenProperty.getSecretKey(), algorithms=[TokenProperty.getAlgorithm()])
+    searcherNo = payload["studentNo"]
+    searcherData = userRepository.findByStudentNo(searcherNo)
     
 
+    #ratedFriends 당한 사람 data에 들어가는것
+    userRepository.insertRatedFriend(searcherNo=searcherNo,
+                                    searchedNo=searchedNo
+                                    )
     
+    #correctRate 삽입
+    userRepository.insertCorrectRate(searcherNo=searcherNo,
+                                    correctNum=correctNum
+                                    )
     
-
-
-
-
-    
-
-    
-
-    
-
-    
-
+    #friendlyRate
