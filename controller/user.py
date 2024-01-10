@@ -30,9 +30,6 @@ def getStudentInfor(studentNo: str):
 
 
 @user_bp.route("/api/students/infor/<studentNo>")
-<<<<<<< HEAD
-def insertStudentInfor(studentNo: str):
-=======
 def insertStudentInfor(studentNo:str):
 
     studentInfor = request.form 
@@ -73,7 +70,7 @@ def mypage():
     student = userRepository.findByStudentNo(studentNo)
     if request.method == "GET":
         result = request.args.get('result', False)
-        return render_template("mypage/mypage.html", student=student, MODYFIABLE_INFO_CONFIG=MODYFIABLE_INFO_CONFIG, result=result)
+        return render_template("myPage/myPage.html", student=student, MODYFIABLE_INFO_CONFIG=MODYFIABLE_INFO_CONFIG, result=result)
     
     if request.method == "POST":
         updateRequestDto = {} 
@@ -82,11 +79,3 @@ def mypage():
                 updateRequestDto[name] = value
         userRepository.updateStudentInfor(updateRequestDto, studentNo)
         return redirect(url_for("user.mypage", result=True))
-
-
-
-
->>>>>>> main
-
-    studentInfor = request.form
-    userRepository.updateStudentInfor(studentInfor, studentNo=studentNo)
