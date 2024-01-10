@@ -1,15 +1,27 @@
-console.log('JS file loaded');
-
 function submitUserData () {
-    const signUpBtn = document.getElementById('signUpBtn');
-    console.log("submit data");
-    // signUpBtn.setAttribute('type', 'submit');
+    const signUpBtn = $('#signUpBtn');
+    signUpBtn.setAttribute('type', 'submit');
 };
 
 function dupCheckFunc () {
-    const dupCheckBtn = document.getElementById('dupCheckBtn');
-    console.log("중복 체크 원해 원해!!!!")
+    const dupCheckBtn = $('#dupCheckBtn');
+    const studentNo = $('input[name=studentNo]').val()
+
+    function handleResponse(response) {
+        if (response?.exists) {
+            dupCheckBtn.prop('disabled', false)
+            alert('이미 존재하는 계정입니다.')
+        } else {
+            dupCheckBtn.prop('disabled', true)
+        }
+    };
     
-    // 중복 체크 API call 함수
-    
+    $.ajax({
+        type: "GET",
+        url: `/api/students/exist/${studentNo}`,
+        data:{},
+        success: function(response) {
+            handleResponse(response);
+        },
+    });
 }
