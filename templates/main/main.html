@@ -6,11 +6,14 @@
     <title>con-brief</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src='{{url_for("static", filename="main/main.js")}}'></script>
+    <script src='{{url_for("static", filename="main/game.js")}}'></script>
     <script defer src="https://use.fontawesome.com/releases/v6.4.0/js/all.js"></script>
     <link rel="stylesheet" href='{{url_for("static", filename="style.css")}}'>
 
 </head>
 <body>
+
+  <div id='con-brief-main-page'>
     {% include 'components/navbar/navbar.html' %}
     
     <script>
@@ -21,6 +24,12 @@
             searchBtn.click(function(){
                 searchStudenNo();
             })
+
+            if($('#gameStartBtn')) {
+                $('#gameStartBtn').click(function(){
+                    renderGameModal()
+                })
+            }
         });
 
     </script>
@@ -44,10 +53,22 @@
             {% set infoConfig = INFO_CONFIG %}
             {% include 'components/infoArea/infoArea.html' %}
         </div>
+
+        <!-- 게임 모달 개발하고나서 아래 div는 지우기! -->
         <div>
             {% set BTN_CONFIG = GAME_BTN_CONFIG %}
             {% include 'components/button.html' %}
         </div>
+        <!-- 이거 위에까지 지우라는 소리고 저 아래 HAS_GAME 살리기 -->
+        
     {% endif %}
+    
+    <!-- {% if HAS_GAME %}
+        <div>
+            {% set BTN_CONFIG = GAME_BTN_CONFIG %}
+            {% include 'components/button.html' %}
+        </div>
+    {% endif %} -->
+  </div>
 </body>
 </html>
