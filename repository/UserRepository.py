@@ -24,6 +24,7 @@ class UserRepository:
         return student
     
     def updateStudentInfor(self,studentInforDto:dict,studentNo:str):
+        
         self.__db.update_one({"studentNo":studentNo},{'$set':studentInforDto})
 
 
