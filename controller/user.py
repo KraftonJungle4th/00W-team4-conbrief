@@ -1,5 +1,6 @@
-from flask import Blueprint,jsonify,request
+from flask import Blueprint,jsonify,request,template_rendered
 from repository.UserRepository import UserRepository
+from clientConfigs.main.CONFIGS import SEARCH_CONFIG
 
 userRepository =  UserRepository()
 user_bp = Blueprint("user", __name__)
@@ -8,7 +9,7 @@ user_bp = Blueprint("user", __name__)
 def checkStudentNo(studentNo: str):
     return {"exists" : userRepository.existByStudentNo(studentNo=studentNo)}
 
-@user_bp.route("/api/students/infor/<studentNo>") #학생 정보 제공
+@user_bp.route("/api/students/infor/<studentNo>")
 def getStudentInfor(studentNo:str):
 
     param = request.args.get('param')
@@ -22,13 +23,17 @@ def getStudentInfor(studentNo:str):
 @user_bp.route("/api/students/infor/<studentNo>")
 def insertStudentInfor(studentNo:str):
 
-    studentInfor = request.form #dict data 저장
-    userRepository.saveStudentInfor(studentInfor,studentNo=studentNo)
+    studentInfor = request.form 
+    userRepository.updateStudentInfor(studentInfor,studentNo=studentNo)
+
+
+
+
+
 
 
 
     
-
 
     
     
