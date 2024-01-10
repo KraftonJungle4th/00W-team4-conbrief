@@ -3,7 +3,7 @@ SIGN_UP = [
         "name": 'studentNo',
         "label": '수강생 번호',
         "example": '(ex.4기-06인 경우 "0406")',
-        "type": 'text',
+        "type": 'number',
         "pattern": '[0-9]*',
         "placeholder": '형식을 확인해주세요',
         "insideBtn": {
@@ -46,7 +46,7 @@ LOGIN = [
         "name": 'studentNo',
         "label": '수강생 번호',
         "example": '(ex.4기-06인 경우 "0406")',
-        "type": 'text',
+        "type": 'number',
         "pattern": '[0-9]*',
         "placeholder": '형식을 확인해주세요',
     },
