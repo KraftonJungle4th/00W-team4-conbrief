@@ -25,7 +25,7 @@ def login():
         accessToken = jwt.encode(token.toJson(), key=TokenProperty.getSecretKey(), algorithm=TokenProperty.getAlgorithm())
 
         resp = redirect(url_for('home'))
-        resp.set_cookie('accessToken', accessToken, max_age=TokenProperty.getMaxAge(), expires=token.getExpireTime())
+        resp.set_cookie('accessToken', accessToken, max_age=TokenProperty.getMaxAge() * 60, expires=token.getExpireTime())
         return resp
     
     raise Exception("지원하지 않는 Method 입니다")

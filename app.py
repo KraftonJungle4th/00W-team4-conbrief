@@ -34,10 +34,7 @@ def filter():
             return abort(401)
 
         tokenType, token = request.headers['Authorization'].split()
-        try:
-            if tokenType != 'Bearer' or not TokenValidator.validateToken(token):
-                return abort(401)
-        except:
+        if tokenType != 'Bearer' or not TokenValidator.validateToken(token):
             return abort(401)
 
     # 페이지 인증 처리

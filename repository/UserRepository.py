@@ -24,7 +24,21 @@ class UserRepository:
         return student
     
     def updateStudentInfor(self,studentInforDto:dict,studentNo:str):
-        
         self.__db.update_one({"studentNo":studentNo},{'$set':studentInforDto})
+
+
+
+    def insertRatedFriend(self,searcherNo:str,searchedNo:str):
+        # if not "ratedFriend" in searchedData:
+            self.__db.update_one({"studentNo":searchedNo},{"$set":{"ratedFriend":searcherNo}},upsert=True)
+            
+        
+    
+    def insertCorrectRate(self,searcherNo:str,correctNum:int):
+        # if not "correctRate" in searcherData:
+            self.__db.update_one({"studentNo":searcherNo},{"$set":{"correctRate":correctNum}},upsert=True)
+            
+
+    
 
 

@@ -46,8 +46,6 @@ async function renderGameModal() {
 
     const studentName = await getStudentData("name");
 
-    console.log(round, studentName);
-
     $("#con-brief-main-page").append(
         MODAL_TEMP({ ...GAME_DATA[round], studentName, round, score })
     );
