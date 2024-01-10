@@ -13,22 +13,15 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    #   - name: shell Stop Second Front Health Check
-    #     run: |
-    #       echo "$SSH_PEM_KEY" >> $HOME/key.pem
-    #       chmod 600 $HOME/key.pem
-    #       ssh -i $HOME/key.pem -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_KNOWN_HOSTS} '~/script.sh'
-    #     env:
-    #       SSH_USER: ${{secrets.SSH_USER}}
-    #       SSH_KNOWN_HOSTS: ${{secrets.SSH_KNOWN_HOSTS}}
-    #       SSH_PEM_KEY: ${{secrets.SSH_PEM_KEY}}
+      - name: start shell script
+        run: |
+          echo "$SSH_PEM_KEY" >> $HOME/key.pem
+          chmod 600 $HOME/key.pem
+          ssh -i $HOME/key.pem -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_KNOWN_HOSTS} '~/script.sh'
+          exit
+        env:
+          SSH_USER: ${{secrets.SSH_USER}}
+          SSH_KNOWN_HOSTS: ${{secrets.SSH_KNOWN_HOSTS}}
+          SSH_PEM_KEY: ${{secrets.SSH_PEM_KEY}}
 
-      - name: execute shell script
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.SSH_KNOWN_HOSTS }}
-          username: ${{ secrets.SSH_USER }}
-          key: ${{ secrets.SSH_PEM_KEY }}
-          port: ${{ secrets.SSH_PORT }}
-          script_stop: true
-          script: "./script.sh"
+
