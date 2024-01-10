@@ -79,3 +79,8 @@ def mypage():
                 updateRequestDto[name] = value
         userRepository.updateStudentInfor(updateRequestDto, studentNo)
         return redirect(url_for("user.mypage", result=True))
+
+
+
+
+
