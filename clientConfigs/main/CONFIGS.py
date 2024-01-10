@@ -1,4 +1,5 @@
 SEARCH_CONFIG = {
+
     'introduction': '궁금한 수강생의 번호를 입력해보세요!',
     'name': 'searchNo',
     'type': 'text',
@@ -6,4 +7,12 @@ SEARCH_CONFIG = {
     'placeholder': 'ex. 4기-06의 경우 0406',
     'btnName': '조회',
     'btnId': 'searchNoBtn'
+    
+}
+
+GAME_BTN_CONFIG ={
+    
+    'btnName' :'미니 게임 시작',
+    'btnId':'miniStartBtn'
+
 }
