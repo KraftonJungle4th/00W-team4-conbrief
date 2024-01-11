@@ -13,10 +13,12 @@ saveBtn.addEventListener("submit", function (event) {
 });
 
 function closePreviewModal () {
+    document.body.style.overflow = 'unset';
     $("#previewModal").remove();
 }
 
 function openPreview() {
+    document.body.style.overflow = 'hidden';
     const inputTags = document.getElementsByTagName("input");
     let inputList = [];
     for (const tag of inputTags) {
@@ -28,10 +30,15 @@ function openPreview() {
                         ]
         }
     }
-    $("#con-brief-my-page").append(MODAL_TEMP(inputList));
+
+    const imageUrl = 'https://cataas.com/cat';
+    const name = inputList.filter(item => item.name==='이름')[0].value;
+    const dream = inputList.filter(item => item.name==='포부')[0].value;
+
+    $("#con-brief-my-page").append(MODAL_TEMP(inputList, imageUrl, name, dream));
 }
 
-const MODAL_TEMP = (inputList) => `
+const MODAL_TEMP = (inputList, imageUrl, name, dream) => `
         <div id='previewModal'>
             <div class='modalOverlay'></div>
             <div class='modalWrapper'>
@@ -39,6 +46,21 @@ const MODAL_TEMP = (inputList) => `
                     <div id='closeBtn' onclick='closePreviewModal()'>
                         <i class="fa-regular fa-circle-xmark"></i>
                     </div>
+                    <div class='flexVertical flexCenter'>
+                        <img
+                            class="profileImg"
+                            src=${imageUrl}
+                        />
+
+                        <p class='introText'>
+                            ${name}
+                        </p>
+
+                        <p class='dreamText'>
+                            ${dream}
+                        </p>
+                    </div>
+                    <div class="separatorLine"></div>
                     <ul class='flexVertical'>
                         ${inputList.map(
                             item =>

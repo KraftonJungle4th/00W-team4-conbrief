@@ -79,7 +79,8 @@ ul, li {
 }
 
 .labelText {
-    width: 70px;
+    min-width: 70px;
+    width: auto;
     text-align: left;
     font-size: 18px;
     font-family:'Noto Sans KR' ;
@@ -320,6 +321,8 @@ img {
 
     
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
+    overflow: scroll;
 }
 
 #closeBtn {
