@@ -17,16 +17,8 @@
 
 <body>
     {% include 'components/navbar/navbar.html' %}
-    <div class='wrapper'>
-        <div class="previewBtnWrapper">
-            <button id="previewBtn">내 프로필 미리보기</button>
-            <!-- 팝업창과 오버레이 -->
-            <div id="popup">
-                <div id="previewContent"></div>
-                <button id="closePopupBtn">X</button>
-            </div>
-            <div id="overlay"></div>
-        </div>
+    <div id='con-brief-my-page' class='wrapper'>
+        <button class="compBtn flexCenter" id="previewBtn" onclick='openPreview()'>내 프로필 미리보기</button>
 
         {% include 'components/separator.html' %}
         
