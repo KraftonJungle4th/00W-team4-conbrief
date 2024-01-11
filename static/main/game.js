@@ -4,9 +4,9 @@ function setUserGameData() {
 }
 
 function closeGameModal() {
-    // main doc에 modal temp 빼기
-    $("#con-brief-main-page").remove("#miniGameModal");
-    localStorage.clear();
+    localStorage.removeItem("miniGameRound");
+    localStorage.removeItem("userScore");
+    $("#miniGameModal").remove();
 }
 
 async function getStudentData(param) {
@@ -51,13 +51,13 @@ async function renderGameModal() {
     );
 }
 
-function nextStep() {
+async function nextStep() {
     let round = parseInt(localStorage.getItem("miniGameRound"));
     let score = parseInt(localStorage.getItem("userScore"));
 
-    let studentData = getStudentData(GAME_DATA[round].param);
+    let studentData = await getStudentData(GAME_DATA[round].param);
 
-    localStorage.setItem("miniGameRound", round);
+    // localStorage.setItem("miniGameRound", round);
 }
 
 const checkFuncs = {
@@ -76,7 +76,7 @@ const MODAL_TEMP = ({
         <div id='miniGameModal'>
             <div class='modalOverlay'></div>
             <div class='modalWrapper'>
-                <div id='closeBtn' onclick=${closeGameModal}>
+                <div id='closeBtn' onclick='closeGameModal()'>
                     <i class="fa-regular fa-circle-xmark"></i>
                 </div>
                 
@@ -94,18 +94,30 @@ const MODAL_TEMP = ({
 
                 ${id !== "intro" ? `<input id=${id} type=${type}>` : ""}
 
-                <button class='compBtn' id=${id} onclick=${nextStep}>
+                ${
+                    round !== 0
+                        ? `<button class='compBtn' id=${id} onclick='nextStep()'>
                     ${id !== "intro" ? "정답 확인" : "게임 시작"}
-                </button>
+                </button>`
+                        : ""
+                }
 
-                <p>
-                    현재 점수: ${score}
-                </p>
+                ${
+                    round !== 0
+                        ? `<p> 현재 점수: ${score}</p>`
+                        : ""
+                }
+
             </div>
         </div>
       `;
 
 const GAME_DATA = [
+    {
+        id: "toBeContinued",
+        param: "name",
+        intro: "의 진짜 모습 알아맞히기! 게임은 출시 예정입니다🤪",
+    },
     {
         id: "intro",
         param: "name",
