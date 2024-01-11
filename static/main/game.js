@@ -6,6 +6,7 @@ function setUserGameData() {
 function closeGameModal() {
     localStorage.removeItem("miniGameRound");
     localStorage.removeItem("userScore");
+    document.body.style.overflow = 'unset';
     $("#miniGameModal").remove();
 }
 
@@ -35,6 +36,8 @@ async function getStudentData(param) {
 }
 
 async function renderGameModal() {
+    document.body.style.overflow = 'hidden';
+
     let round = parseInt(localStorage.getItem("miniGameRound") || false);
     let score = parseInt(localStorage.getItem("userScore") || false);
 
@@ -76,41 +79,45 @@ const MODAL_TEMP = ({
         <div id='miniGameModal'>
             <div class='modalOverlay'></div>
             <div class='modalWrapper'>
-                <div id='closeBtn' onclick='closeGameModal()'>
-                    <i class="fa-regular fa-circle-xmark"></i>
+                <div class="modal">
+                    <div id='closeBtn' onclick='closeGameModal()'>
+                        <i class="fa-regular fa-circle-xmark"></i>
+                    </div>
+                
+                    ${round !== 0 ? `<p> [ROUND ${round}/3] </p>` : ""}
+
+                    <h class='introText'>${studentName}${intro}</h>
+                    
+                    ${
+                        textList
+                            ? textList.map(
+                                (text) => `<p class='gameRule'>${text}</p>`
+                            )
+                            : ""
+                    }
+
+                    
+
+                    ${
+                        round !== 0
+                            ? `<button class='compBtn' id=${id} onclick='nextStep()'>
+                                    ${id !== "intro" ? "정답 확인" : "게임 시작"}
+                                </button>`
+                            : ""
+                    }
+
+                    ${
+                        round !== 0
+                            ? `<p> 현재 점수: ${score}</p>`
+                            : ""
+                    }
                 </div>
-                
-                ${round !== 0 ? `<p> [ROUND ${round}/3] </p>` : ""}
-
-                <h class='introText'>${studentName}${intro}</h>
-                
-                ${
-                    textList
-                        ? textList.map(
-                              (text) => `<p class='gameRule'>${text}</p>`
-                          )
-                        : ""
-                }
-
-                ${id !== "intro" ? `<input id=${id} type=${type}>` : ""}
-
-                ${
-                    round !== 0
-                        ? `<button class='compBtn' id=${id} onclick='nextStep()'>
-                    ${id !== "intro" ? "정답 확인" : "게임 시작"}
-                </button>`
-                        : ""
-                }
-
-                ${
-                    round !== 0
-                        ? `<p> 현재 점수: ${score}</p>`
-                        : ""
-                }
-
             </div>
         </div>
       `;
+
+// 아래 코드 96번째 줄에 나중에 넣기
+// ${id !== "intro" ? `<input id=${id} type=${type}>` : ""}
 
 const GAME_DATA = [
     {

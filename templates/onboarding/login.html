@@ -1,39 +1,52 @@
 <html lang="KR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v6.4.0/js/all.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Gothic:wght@400;700&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@100;300;700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
     <script src='{{url_for("static", filename="onboarding/login.js")}}'></script>
     <link rel="stylesheet" href='{{url_for("static", filename="style.css")}}'>
 </head>
+
 <body>
-    <script>        
-        $(document).ready(function () {
-            $('#loginBtn').click(function(){ submitUserData() });
-        });
+    <div class='wrapper'>
+        <script>
+            $(document).ready(function () {
+                $('#loginBtn').click(function () { submitUserData() });
+            });
 
-    </script>
+        </script>
 
-    <form method="post" class="signUp">
-        {% for item in CONFIG %}
-        
+        <div class='logoArea' onclick="location.href='/login'">
+            <i class="fa-solid fa-hands-asl-interpreting"></i>
+            <span>con-brief</span>
+        </div>
+ 
+        <form method="post" class="onboarding">
+            {% for item in CONFIG %}
+
             {% set style = 'Vertical' %}
             {% set item = item %}
             {% set errorMessage = errorMessage %}
             {% include 'components/inputBox.html' %}
 
-        {% endfor %}
+            {% endfor %}
 
-        {% if errorMessage %}
+            {% if errorMessage %}
             <p class='caution'>
                 {{ errorMessage }}
             </p>
-        {% endif %}
+            {% endif %}
 
-        {% set BTN_CONFIG = BTN_CONFIG %}     
-        {% include 'components/button.html' %}
-    </form>
-    <button class="compBtn" onclick="location.href='/signup'">회원 가입</button>
+            {% set BTN_CONFIG = BTN_CONFIG %}
+            {% include 'components/button.html' %}
+        </form>
+        <button class="textBtn flexCenter" onclick="location.href='/signup'">회원 가입</button>
+    </div>
 </body>
+
 </html>

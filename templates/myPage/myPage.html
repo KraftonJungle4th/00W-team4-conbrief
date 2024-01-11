@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,45 +8,51 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script defer src='{{url_for("static", filename="myPage/myPage.js")}}'></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Gothic:wght@400;700&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@100;300;700&family=Poppins:wght@300;500;700&display=swap"
+        rel="stylesheet">
+
     <link rel="stylesheet" href='{{url_for("static", filename="style.css")}}'>
 </head>
+
 <body>
     {% include 'components/navbar/navbar.html' %}
-    <div class="previewBtnWrapper">
-        <button id="previewBtn">내 프로필 미리보기</button>
-        <!-- 팝업창과 오버레이 -->
-        <div id="popup">
-            <div id="previewContent"></div>
-            <button id="closePopupBtn">X</button>
-        </div>
-        <div id="overlay"></div>
-    </div>
-    <hr>
-    <metaInfo>기본 프로필 정보</metaInfo>
-    <form method="post" id="saveForm">
-        {% for item in MODYFIABLE_INFO_CONFIG %}
-            {% set style = 'Horizontal' %}
-            {% include 'components/inputBox.html' %}
-            {% if item['name'] == 'interests' %}
-            <hr>
-            <metaInfo>미니 게임용 정보</metaInfo>
-            {% endif %}
-        {% endfor %}
+    <div id='con-brief-my-page' class='wrapper'>
+        <button class="compBtn flexCenter" id="previewBtn" onclick='openPreview()'>내 프로필 미리보기</button>
 
-        <button class="compBtn" id="saveBtn" type="submit">전체 저장</button>
-    </form>
-    {% if result %}
-    <script>
-        Swal.fire({
-            icon: 'success',
-            title: '저장 성공!',
-            showConfirmButton: false,
-            timer: 1000
-        }).then( result => {
-            console.log("resutl!!")
-            location.href = '/mypage'
-        });
-    </script>
-    {% endif %}
+        {% include 'components/separator.html' %}
+        
+        <metaInfo>기본 프로필 정보</metaInfo>
+        <form method="post" id="saveForm" class='infoArea' >
+            {% for item in MODYFIABLE_INFO_CONFIG %}
+                {% set style = 'Vertical' %}
+                {% include 'components/inputBox.html' %}
+            
+                {% if item['name'] == 'interests' %}
+        
+        {% include 'components/separator.html' %}
+            <metaInfo>미니 게임용 정보</metaInfo>
+                {% endif %}
+                
+            {% endfor %}
+
+            <button class="compBtn flexCenter" id="saveBtn" type="submit">전체 저장</button>
+        </form>
+        
+        {% if result %}
+            <script>
+                Swal.fire({
+                    icon: 'success',
+                    title: '저장 성공!',
+                    showConfirmButton: false,
+                    timer: 1000
+                }).then(result => {
+                    console.log("resutl!!")
+                    location.href = '/mypage'
+                });
+            </script>
+        {% endif %}
+    </div>
 </body>
+
 </html>

@@ -8,13 +8,14 @@
     <script src='{{url_for("static", filename="main/main.js")}}'></script>
     <script src='{{url_for("static", filename="main/game.js")}}'></script>
     <script defer src="https://use.fontawesome.com/releases/v6.4.0/js/all.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Gothic:wght@400;700&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@100;300;700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href='{{url_for("static", filename="style.css")}}'>
 
 </head>
 <body>
-
-  <div id='con-brief-main-page'>
     {% include 'components/navbar/navbar.html' %}
+    
+    <div id='con-brief-main-page' class='wrapper'>
     
     <script>
       
@@ -37,7 +38,7 @@
     {% set item = SEARCH_CONFIG %}
     {% include 'components/introduction.html' %}
 
-    <form method="post" action="/main" id="searchForm">
+    <form method="post" action="/main" id="searchForm" class="flexVertical">
         {% set style = 'Vertical' %}
         {% set item = SEARCH_CONFIG %}
         {% set errorMessage = errorMessage %}

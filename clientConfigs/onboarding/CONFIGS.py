@@ -9,9 +9,7 @@ SIGN_UP = [
         "insideBtn": {
             "btnName": "중복 체크",
             "btnId": "dupCheckBtn",
-            "style": {
-                "size": "small"
-            }
+            "style": "smallSized"
         },
 
     },

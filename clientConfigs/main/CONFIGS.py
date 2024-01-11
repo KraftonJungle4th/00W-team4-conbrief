@@ -12,7 +12,7 @@ SEARCH_CONFIG = {
 
 GAME_BTN_CONFIG = {
     'btnName': '미니 게임 시작',
-    'btnId': 'gameStartBtn'
+    'btnId': 'gameStartBtn',
 
 }
 
@@ -37,6 +37,7 @@ INFO_CONFIG = {
 MODYFIABLE_INFO_CONFIG = [
     {
         "name": 'name',
+        "key": 'name',
         "label": '이름',
         "type": 'text',
         "pattern": '[가-힇]{1,}',
@@ -44,8 +45,9 @@ MODYFIABLE_INFO_CONFIG = [
         "class": "required",
     },
     {
-        "name": 'email',
         "label": '이메일(슬랙 이메일)',
+        "name": 'email',
+        "key": 'email',
         "type": 'email',
         "placeholder": '이메일 형식을 확인해주세요',
         "pattern": '.+',
@@ -53,6 +55,7 @@ MODYFIABLE_INFO_CONFIG = [
     },
     {
         "name": 'dream',
+        "key": 'dream',
         "label": '포부',
         "type": 'text',
         "placeholder": '자신의 포부를 드러내세요',
@@ -61,74 +64,85 @@ MODYFIABLE_INFO_CONFIG = [
     },
     {
         "name": 'github',
+        "key": 'github',
         "label": '깃헙아이디',
         "type": 'text',
-        "pattern": '[a-zA-Z]{1,}',
         "placeholder": '깃헙 아이디를 확인해주세요',
         "class": "required"
     },
     {
         "name": 'phone',
+        "key": 'phone',
         "label": '전화번호',
         "type": 'phone',
         "placeholder": '(-)를 제외한 번호',
     },
     {
         "name": 'major',
+        "key": 'major',
         "label": '전공',
         "type": 'text',
         "placeholder": '자신의 전공을 알려보세요!',
     },
     {
         "name": 'preferredMenus',
+        "key": 'preferredMenus',
         "label": '선호하는 음식',
         "type": 'text',
         "placeholder": '선호하는 음식을 알려주세요!',
     },
     {
         "name": 'hatedMenus',
+        "key": 'hatedMenus',
         "label": '불호하는 음식',
         "type": 'text',
         "placeholder": '먹기꺼려하는 음식을 적어주세요!',
     },
     {
         "name": 'hometown',
+        "key": 'hometown',
         "label": '본가',
         "type": 'text',
         "placeholder": '어디에서 오셨나요? 시군구 정도만 알려주세요~',
     },
     {
         "name": 'interests',
+        "key": 'interests',
         "label": '관심분야',
         "type": 'text',
         "placeholder": '최근 관심사를 알려주세요!',
     },
     {
         "name": 'age',
+        "key": 'age',
         "label": '나이',
         "type": 'number',
         "placeholder": '나이가 어떻게 되나요?',
     },
     {
         "name": 'mbti',
-        "label": 'mbti',
+        "key": 'mbti',
+        "label": 'MBTI',
         "type": 'text',
         "placeholder": 'mbti는요?',
     },
     {
         "name": 'ttfTruth1',
+        "key": 'ttfTruth1',
         "label": '진실1',
         "type": 'text',
         "placeholder": '자신에 대한 진실을 알려주세요',
     },
     {
         "name": 'ttfTruth2',
+        "key": 'ttfTruth2',
         "label": '진실2',
         "type": 'text',
         "placeholder": '자신에 대한 진실을 알려주세요',
     },
     {
         "name": 'ttfFalse',
+        "key": 'ttfFalse',
         "label": '진짜같은 가짜',
         "type": 'text',
         "placeholder": '자신에 대한 진짜같은 가짜를 알려주세요',
