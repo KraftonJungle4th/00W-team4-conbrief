@@ -316,18 +316,23 @@ img {
     
     border-radius: 8px;
 
-    padding: 20px;
+    padding: 60px;
     background-color: white;
 
-    
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 
     overflow: scroll;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
 }
 
 #closeBtn {
     position: fixed;
-    top: auto;
+    top: 3%;
     right: 3%;
     width: 20px;
 }
