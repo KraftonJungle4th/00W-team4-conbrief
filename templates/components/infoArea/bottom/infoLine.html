@@ -1,10 +1,12 @@
 <li class='infoLine'>
     {% if item[ keyNlabel['key'] ] %}
-        <span class='labelText'> {{ item[ keyNlabel['label'] ] }}</span>
-        <span class='valueText'> {{ item[ keyNlabel['key'] ] }}</span>
+    <div class='flexHorizontal lineElement'>
+        <div class='labelText'> {{ keyNlabel['label'] }}</div>
+        <div class='valueText'> {{ item[ keyNlabel['key'] ] }}</div>
+    </div>
 
-        {% if keyNlabel['key'] in ['email', 'github', 'phone'] %}
+        <!-- {% if keyNlabel['key'] in ['email', 'github', 'phone'] %}
             <i class="fa-regular fa-copy"></i>
-        {% endif %}
+        {% endif %} -->
     {% endif %}
 </li>

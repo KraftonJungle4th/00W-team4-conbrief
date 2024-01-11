@@ -1,8 +1,8 @@
-<div class="flex{{ style }}">
+<div class="flex{{ style }} lineElement">
 
     {% if item['label'] %}
         <div>
-            <label for="{{ item['name'] }}">
+            <label class="labelText" for="{{ item['name'] }}">
                 {{ item['label'] }}
             </label>
             {% if item['example'] %}
@@ -14,20 +14,26 @@
     {% endif %}
     
     <div class='lastItem flexVertical'>
-        <div class='inputArea'>
+        <div class="inputArea 
+                    {% if item['insideBtn'] %}
+                        flexBetween
+                    {% endif %}
+                    ">
             <input type="{{ item['type'] }}"
                 name="{{ item['name'] }}"
                 placeholder="{{ item['placeholder'] }}"
                 class="{{ item['class'] }}"
+                
                 {% if item['pattern'] %}
                     pattern="{{ item['pattern'] }}"
                 {% endif %}
+
                 {% if student %}
                     value="{{ student[item['name']] }}"                
                 {% endif %}
             >
             {% if item['insideBtn'] %}
-                {% set BTN_CONFIG = item['insideBtn'] %}          
+                {% set BTN_CONFIG = item['insideBtn'] %}
                 {% include 'components/button.html' %}
             {% endif %}
         </div>

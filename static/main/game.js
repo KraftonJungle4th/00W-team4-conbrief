@@ -76,31 +76,33 @@ const MODAL_TEMP = ({
         <div id='miniGameModal'>
             <div class='modalOverlay'></div>
             <div class='modalWrapper'>
-                <div id='closeBtn' onclick=${closeGameModal}>
-                    <i class="fa-regular fa-circle-xmark"></i>
+                <div class="modal">
+                    <div id='closeBtn' onclick=${closeGameModal}>
+                        <i class="fa-regular fa-circle-xmark"></i>
+                    </div>
+                    
+                    ${round !== 0 ? `<p> [ROUND ${round}/3] </p>` : ""}
+
+                    <h class='introText'>${studentName}${intro}</h>
+                    
+                    ${
+                        textList
+                            ? textList.map(
+                                (text) => `<p class='gameRule'>${text}</p>`
+                            )
+                            : ""
+                    }
+
+                    ${id !== "intro" ? `<input id=${id} type=${type}>` : ""}
+
+                    <button class='compBtn' id=${id} onclick=${nextStep}>
+                        ${id !== "intro" ? "정답 확인" : "게임 시작"}
+                    </button>
+
+                    <p>
+                        현재 점수: ${score}
+                    </p>
                 </div>
-                
-                ${round !== 0 ? `<p> [ROUND ${round}/3] </p>` : ""}
-
-                <h class='introText'>${studentName}${intro}</h>
-                
-                ${
-                    textList
-                        ? textList.map(
-                              (text) => `<p class='gameRule'>${text}</p>`
-                          )
-                        : ""
-                }
-
-                ${id !== "intro" ? `<input id=${id} type=${type}>` : ""}
-
-                <button class='compBtn' id=${id} onclick=${nextStep}>
-                    ${id !== "intro" ? "정답 확인" : "게임 시작"}
-                </button>
-
-                <p>
-                    현재 점수: ${score}
-                </p>
             </div>
         </div>
       `;

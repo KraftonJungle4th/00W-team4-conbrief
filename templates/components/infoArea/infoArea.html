@@ -1,22 +1,23 @@
-<div>
-    <div>
+<div class='infoArea'>
+    <div class='flexVertical flexCenter lastItem'>
         {% set item = result %}
         {% set infoConfig = infoConfig %}
         {% include 'components/infoArea/top/profile.html' %}
 
-        {% for keyNlabel in infoConfig['rankList'] %}
-            {% set style = 'Vertical' %}
-            {% set item = result %}
-            {% set infoConfig = infoConfig %}
-            {% include 'components/infoArea/top/rankLine.html' %}    
-        {% endfor %}
-
-        {% include 'components/separator.html' %}
+        {% if result['friendlyRate'] %}
+            {% for keyNlabel in infoConfig['rankList'] %}
+                {% set style = 'Vertical' %}
+                {% set item = result %}
+                {% set infoConfig = infoConfig %}
+                {% include 'components/infoArea/top/rankLine.html' %}    
+            {% endfor %}
+        {% endif %}
     </div>
 
-    <ul>
+    {% include 'components/separator.html' %}
+
+    <ul class='flexVertical'>
         {% for keyNlabel in infoConfig['infoList'] %}
-            {% set style = 'Horizontal' %}
             {% set item = result %}
             {% set keyNlabel = keyNlabel %}
             {% include 'components/infoArea/bottom/infoLine.html' %}    

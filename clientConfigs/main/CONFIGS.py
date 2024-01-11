@@ -12,7 +12,7 @@ SEARCH_CONFIG = {
 
 GAME_BTN_CONFIG = {
     'btnName': '미니 게임 시작',
-    'btnId': 'gameStartBtn'
+    'btnId': 'gameStartBtn',
 
 }
 
@@ -63,7 +63,6 @@ MODYFIABLE_INFO_CONFIG = [
         "name": 'github',
         "label": '깃헙아이디',
         "type": 'text',
-        "pattern": '[a-zA-Z]{1,}',
         "placeholder": '깃헙 아이디를 확인해주세요',
         "class": "required"
     },
