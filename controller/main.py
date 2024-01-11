@@ -19,8 +19,9 @@ def main():
         studentNo = request.form["searchNo"]
         RESULT = userRepository.findByStudentNo(studentNo=studentNo)
         necesskeys = ["age", "mbti", "ttfTruth1", "ttfTruth2", "ttfFalse"]
-
-        if all((key in RESULT) for key in necesskeys):
+        if not RESULT:
+            buttonActivate = False
+        elif all((key in RESULT) for key in necesskeys):
             buttonActivate = True
         else:
             buttonActivate = False
